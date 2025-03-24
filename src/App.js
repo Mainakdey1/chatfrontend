@@ -7,7 +7,7 @@ const getRandomUsername = () => {
     const storedUsername = localStorage.getItem("chat_username");
     if (storedUsername) return storedUsername;
 
-    const usernames = ["Mehar ka dost 1", "Mehar ka dost 2", "Mehar ka dost 3", "Mehar ka dost 4", "Mehar ka dost 5", "Mehar ka dost 6", "Mehar ka dost 7"];
+    const usernames = ["Mehar ka dost ", "Mehar ka dost ", "Mehar ka dost ", "Mehar ka dost ", "Mehar ka dost ", "Mehar ka dost ", "Mehar ka dost "];
     const randomUsername = usernames[Math.floor(Math.random() * usernames.length)] + Math.floor(Math.random() * 1000);
 
     localStorage.setItem("chat_username", randomUsername);
