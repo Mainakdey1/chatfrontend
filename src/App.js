@@ -18,7 +18,7 @@ const App = () => {
     const [username] = useState(getRandomUsername());
     const [message, setMessage] = useState("");
     const [chat, setChat] = useState([]);
-    const [started, setStarted] = useState(false); 
+    const [started, setStarted] = useState(false);
 
     useEffect(() => {
         socket.on("receive_message", (data) => {
@@ -36,35 +36,93 @@ const App = () => {
     };
 
     return (
-        <div style={{ maxWidth: "400px", margin: "auto", textAlign: "center", padding: "20px", border: "1px solid black" }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", background: "#f4f4f4" }}>
             {!started ? (
-                <button 
-                    onClick={() => setStarted(true)} 
-                    style={{ padding: "10px 20px", fontSize: "18px", cursor: "pointer" }}>
+                <button
+                    onClick={() => setStarted(true)}
+                    style={{
+                        padding: "15px 30px",
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        background: "#007bff",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: "8px",
+                        cursor: "pointer",
+                        transition: "0.3s",
+                        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
+                    }}
+                    onMouseOver={(e) => (e.target.style.background = "#0056b3")}
+                    onMouseOut={(e) => (e.target.style.background = "#007bff")}
+                >
                     Start Chatting
                 </button>
             ) : (
-                <>
-                    <h2>Global Chat</h2>
-                    <p>Welcome, <strong>{username}</strong></p>
+                <div style={{
+                    width: "400px",
+                    background: "#fff",
+                    padding: "20px",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    textAlign: "center"
+                }}>
+                    <h2 style={{ color: "#333" }}>Global Chat</h2>
+                    <p style={{ fontSize: "14px", color: "#555" }}>Welcome, <strong>{username}</strong></p>
 
-                    <div style={{ height: "300px", overflowY: "auto", border: "1px solid gray", padding: "10px", marginBottom: "10px" }}>
+                    <div style={{
+                        height: "300px",
+                        overflowY: "auto",
+                        border: "1px solid #ddd",
+                        padding: "10px",
+                        marginBottom: "10px",
+                        borderRadius: "5px",
+                        background: "#fafafa"
+                    }}>
                         {chat.map((msg, index) => (
-                            <p key={index} style={{ textAlign: "left", background: "#f1f1f1", padding: "5px", borderRadius: "5px" }}>
-                                <strong>{msg.username}: </strong>{msg.text}
+                            <p key={index} style={{
+                                textAlign: "left",
+                                background: "#e3f2fd",
+                                padding: "8px",
+                                borderRadius: "5px",
+                                marginBottom: "5px"
+                            }}>
+                                <strong>{msg.username}:</strong> {msg.text}
                             </p>
                         ))}
                     </div>
 
-                    <input
-                        type="text"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder="Type your message..."
-                        style={{ width: "80%", padding: "5px" }}
-                    />
-                    <button onClick={sendMessage} style={{ marginLeft: "5px" }}>Send</button>
-                </>
+                    <div style={{ display: "flex", gap: "10px" }}>
+                        <input
+                            type="text"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            placeholder="Type your message..."
+                            style={{
+                                flex: 1,
+                                padding: "10px",
+                                border: "1px solid #ddd",
+                                borderRadius: "5px",
+                                fontSize: "14px"
+                            }}
+                        />
+                        <button
+                            onClick={sendMessage}
+                            style={{
+                                padding: "10px",
+                                background: "#28a745",
+                                color: "#fff",
+                                border: "none",
+                                borderRadius: "5px",
+                                cursor: "pointer",
+                                transition: "0.3s"
+                            }}
+                            onMouseOver={(e) => (e.target.style.background = "#218838")}
+                            onMouseOut={(e) => (e.target.style.background = "#28a745")}
+                        >
+                            Send
+                        </button>
+                    </div>
+                </div>
             )}
         </div>
     );
