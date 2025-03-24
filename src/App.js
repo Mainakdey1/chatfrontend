@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://chatbackend-nat9.onrender.com");
 
 //all of this is just boiler plate code that i stole from my previous app hehe
 const getRandomUsername = () => {
