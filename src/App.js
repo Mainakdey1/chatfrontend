@@ -7,7 +7,7 @@ const getRandomUsername = () => {
     const storedUsername = localStorage.getItem("chat_username");
     if (storedUsername) return storedUsername;
 
-    const usernames = ["BlueTiger", "FastCheetah", "ShadowNinja", "CrazyPanda", "MightyEagle", "FireFox", "QuantumWolf"];
+    const usernames = ["Mehar ka dost 1", "Mehar ka dost 2", "Mehar ka dost 3", "Mehar ka dost 4", "Mehar ka dost 5", "Mehar ka dost 6", "Mehar ka dost 7"];
     const randomUsername = usernames[Math.floor(Math.random() * usernames.length)] + Math.floor(Math.random() * 1000);
 
     localStorage.setItem("chat_username", randomUsername);
@@ -66,7 +66,7 @@ const App = () => {
                     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
                     textAlign: "center"
                 }}>
-                    <h2 style={{ color: "#333" }}>Global Chat</h2>
+                    <h2 style={{ color: "#333" }}>Adde aur Dhande</h2>
                     <p style={{ fontSize: "14px", color: "#555" }}>Welcome, <strong>{username}</strong></p>
 
                     <div style={{
